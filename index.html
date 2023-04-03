@@ -30,9 +30,12 @@
      background-color: var(--tg-theme-secondary-bg-color);
      color: var(--tg-theme-button-text-color);
      }
-     button{
-     outline: none;   
-     }
+  button:active, button:focus {
+  outline: none !important;
+  }
+  button::-moz-focus-inner {
+  border: 0 !important;
+  }
     </style>
 </head>
 <body>
