@@ -38,16 +38,14 @@
         <p>Это онлайн магазин</p>
         <a class="btn btn-outline-secondary" href="#" id="buy">Купить</a>
     </div>
-    <div> 
     <form id="form">
         <input class="form-control me-2" type="text" placeholder="Имя" aria-label="Search" id="user_name">
         <input class="form-control me-2" type="text" placeholder="Email" aria-label="Search" id="user_email">
         <input class="form-control me-2" type="text" placeholder="Телефон" aria-label="Search" id="user_phone">
         <a class="btn btn-outline-secondary" href="#" id="order">Оформить</a> 
     </form>
-    </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
+   <script>
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById('buy');
         let order = document.getElementById('order');
@@ -60,8 +58,21 @@
         });
 
         order.addEventListener('click', () => {
+            let name = document.getElementById('user_name').value;
+            let email = document.getElementById('user_email').value;
+            let phone = document.getElementById('user_phone').value;
             tg.close();
         });
+
+        let data = {
+            name: name,
+            email: email,
+            phone: phone,
+        }
+        tg.sendData(JSON.stringify(data));
+
+        tg.close();
+    });
     </script>
 </body>
 </html>
